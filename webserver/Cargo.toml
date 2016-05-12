@@ -1,0 +1,11 @@
+[package]
+name = "webserver"
+version = "0.1.0"
+authors = ["Simon Veilleux <sveilleux1@gmail.com>"]
+publish = false
+
+[dependencies]
+iron = "*"
+router = "*"
+rustc-serialize = "*"
+page-api = { path = "../page-api" }

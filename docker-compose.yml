@@ -1,0 +1,33 @@
+web:
+  build: .
+  ports:
+    - "8000:8000"
+  links:
+    - db
+    # - memcache
+    # - redis
+  volumes:
+    - ./webroot:/srv/www
+    - ./uploads:/srv/www/uploads
+    - /root/.wp-cli/cache
+  environment:
+    SITE_URL: http://docker.local:8000
+    WP_DEBUG: 1
+  command: supervisord -e debug
+
+web:
+  build: .
+  ports:
+    - "8000:8000"
+  links:
+    - db
+    # - memcache
+    # - redis
+  volumes:
+    - ./webroot:/srv/www
+    - ./uploads:/srv/www/uploads
+    - /root/.wp-cli/cache
+  environment:
+    SITE_URL: http://docker.local:8000
+    WP_DEBUG: 1
+  command: supervisord -e debug
