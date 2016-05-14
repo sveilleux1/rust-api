@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-ENV RUST_VERSION=nightly
+ENV RUST_VERSION=nightly-2016-04-09
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -32,6 +32,8 @@ RUN mkdir /source && \
 ADD docker/nginx.conf /etc/nginx/sites-enabled/default
 ADD docker/supervisord.conf /etc/supervisor/supervisord.conf
 
+COPY ./Cargo.lock /source
+COPY ./Cargo.toml /source
 COPY ./portal /source
 
 WORKDIR /source

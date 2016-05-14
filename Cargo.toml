@@ -4,5 +4,9 @@ version = "0.1.0"
 authors = ["Simon Veilleux <sveilleux1@gmail.com>"]
 publish = false
 
+[[bin]]
+name = "portal"
+path = "portal/src/main.rs"
+
 [dependencies]
-webserver = { path = "webserver" }
+webserver = { path = "portal/webserver" }
