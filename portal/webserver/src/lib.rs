@@ -14,9 +14,9 @@ mod portal_router;
 
 pub fn start(hostname: &String, port: &i32) {
     let mut router = router::Router::new();
-    portal_router::initialize(&mut router);
-    
-    let database_connection = establish_connection();
+    let mut database_connection = establish_connection();
+
+    portal_router::initialize(&mut router, database_connection);
 
     let server_url = format!("{}:{}", hostname, port).to_string();
     Iron::new(router).http(&*server_url).unwrap();
