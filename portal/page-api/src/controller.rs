@@ -2,19 +2,18 @@ use page_service::PageService;
 use iron::prelude::*;
 use iron::status;
 
-use std::sync::{Mutex, Arc};
 use diesel::pg::PgConnection;
+use r2d2_diesel::ConnectionManager;
+use r2d2::Pool;
 
-pub struct Controller<'a> {
-    database_connection: Arc<Mutex<&'a PgConnection>>
-    //page_service: PageService<'a>
+pub struct Controller {
+    page_service: PageService
 }
 
-impl<'a> Controller<'a> {
-    pub fn new(database_connection : Arc<Mutex<&'a PgConnection>>) -> Controller<'a>  {
+impl Controller {
+    pub fn new(database_connection_pool : Pool<ConnectionManager<PgConnection>>) -> Controller {
         Controller {
-            database_connection : database_connection
-            //page_service: PageService::new(database_connection)
+            page_service: PageService::new(database_connection_pool)
         }
     }
 

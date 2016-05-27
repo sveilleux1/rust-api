@@ -8,6 +8,8 @@ publish = false
 iron = "*"
 router = "*"
 diesel = "0.6.1"
+r2d2 = "*"
+r2d2-diesel = "*"
 diesel_codegen = { version = "0.6.1", default-features = false, features = ["nightly", "postgres"] }
 dotenv = "0.8.0"
 dotenv_macros = "0.8.0"

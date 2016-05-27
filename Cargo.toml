@@ -9,4 +9,6 @@ name = "portal"
 path = "portal/src/main.rs"
 
 [dependencies]
+dotenv = "0.8.0"
+dotenv_macros = "0.8.0"
 webserver = { path = "portal/webserver" }
