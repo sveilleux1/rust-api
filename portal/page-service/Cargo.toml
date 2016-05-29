@@ -10,7 +10,5 @@ diesel_codegen = { version = "0.6.1", default-features = false, features = ["nig
 r2d2 = "*"
 r2d2-diesel = "*"
 dotenv = "0.8.0"
+rustc-serialize = "0.3"
 dotenv_macros = "0.8.0"
-serde = "*"
-serde_json = "*"
-serde_macros = "*"

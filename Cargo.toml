@@ -4,6 +4,9 @@ version = "0.1.0"
 authors = ["Simon Veilleux <sveilleux1@gmail.com>"]
 publish = false
 
+[[build]]
+rustflags = ["--features unstable"]
+
 [[bin]]
 name = "portal"
 path = "portal/src/main.rs"

@@ -6,6 +6,7 @@ extern crate diesel;
 extern crate dotenv;
 extern crate r2d2;
 extern crate r2d2_diesel;
+extern crate rustc_serialize;
 
 use r2d2_diesel::ConnectionManager;
 use r2d2::Pool;
@@ -13,9 +14,16 @@ use diesel::prelude::*;
 use diesel::pg::PgConnection;
 use self::models::*;
 use self::schema::pages::dsl::*;
+//use rustc_serialize::*;
 
 pub mod schema;
 pub mod models;
+
+/*impl Encodable for PgTimestamp {
+    fn encode<S: Encoder>(&self, s: &mut S) -> Result<(), S::Error> {
+        s.emit_u64(*self)
+    }
+}*/
 
 pub struct PageService {
     database_connection_pool: Pool<ConnectionManager<PgConnection>>
